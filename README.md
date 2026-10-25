@@ -15,7 +15,9 @@ Requires Xcode 26 and iOS 18.6 or later (iPhone, portrait).
 
 Open `CoolblueApp.xcodeproj` and run the `CoolblueApp` scheme. The two local Swift packages under `Packages/` resolve automatically.
 
-- **Unit tests** (`CoolblueAppTests`, Swift Testing): `⌘U`, or the `CoolblueAppTests` target in the Test navigator.
+`⌘U` runs both test targets:
+
+- **Unit tests** (`CoolblueAppTests`, Swift Testing). To run only these, use the `CoolblueAppTests` target in the Test navigator.
 - **UI tests** (`CoolblueAppUITests`, XCTest) run against saved API responses, so they need no network.
 
 ## Architecture
@@ -45,6 +47,7 @@ flowchart TB
     API[("Coolblue search API")]
 
     Entry --> Views
+    Entry --> Service
     Entry --> Client
     Entry --> Loader
     Views --> VMs
@@ -60,7 +63,7 @@ flowchart TB
     Client --> API
 ```
 
-Dependencies only point downwards: views know view models, view models know the service protocol and the router, and the packages know nothing about the app. `Networking` has no dependencies; `ImageLoading` depends on `Networking`.
+Dependencies only point downwards: views know view models, view models know the service protocol and the router, and the packages know nothing about the app. `Networking` has no dependencies; `ImageLoading` depends on `Networking`. Only `CoolblueApp` creates concrete services; the screens receive them.
 
 ### Search flow
 
@@ -104,7 +107,7 @@ sequenceDiagram
 
 | Component | What it does |
 |---|---|
-| `CoolblueApp` | Composition root. Creates the one shared `NetworkClient` (15 s request timeout) and `ImageLoader` (memory + disk cache), injects the loader into the SwiftUI environment and shows `ProductSearchView`. |
+| `CoolblueApp` | Composition root. Creates one `NetworkClient` (15 s request timeout) shared by the cached search service and the `ImageLoader` (memory + disk cache), passes the service to `ProductSearchView` and puts the loader in the SwiftUI environment. |
 | `LaunchEnvironmentNetworkClient` | Debug-only. When UI tests pass saved search pages in the launch environment, the app uses this client instead of the network. |
 
 ### ProductSearch feature (`CoolblueApp/ProductSearch`)
@@ -119,7 +122,7 @@ sequenceDiagram
 | `ProductSearchRouter` | Owns the navigation path. `showResults` replaces the stack, so searching again never stacks results on results; `showProduct` pushes a detail screen. |
 | `ProductSearchSuggestionViewModel` | Debounces typing, cancels outdated requests, shows up to four suggestions and submits the query to the router. Debounce, minimum length and count are injected through `ProductSearchSuggestionConfiguration`. |
 | `ProductSearchResultViewModel` | Loads results page by page as rows near the end appear, de-duplicates products, stops at the last page and handles first-page and load-more errors separately. |
-| `ProductSearchView` | Search field plus a suggestion list that stays on screen when navigating back. Hosts the `NavigationStack` and its destinations. |
+| `ProductSearchView` | Search field plus a suggestion list that stays on screen when navigating back. Receives the search service, owns the router and hosts the `NavigationStack` and its destinations. |
 | `ProductSearchResultView` | Result list with loading, empty, error and load-more footer states. |
 | `ProductDetailView` | One product's full details. |
 | `ProductRow` / `Product+Display` | A product row and the formatting it uses: currency, rating, highlighted USPs and the VoiceOver description. |
@@ -139,8 +142,17 @@ Strings live in `CoolblueApp/Localizable.xcstrings` (English source, Dutch trans
 
 | Target | What it covers | Test data |
 |---|---|---|
-| Unit tests | Decoding, endpoint, error mapping, remote and cached services, both view models, router | Real API JSON (`Fixture.searchPage`) for decoding and the service; small id-based stubs (`Product.stub(id:)`) for view models, so each test shows its scenario and fails only for view-model reasons |
+| Unit tests | Decoding, error mapping, remote and cached services, both view models, router | Real API JSON (`Fixture.searchPage`) for decoding and the service; small id-based stubs (`Product.stub(id:)`) for view models, so each test shows its scenario and fails only for view-model reasons |
 | UI tests | Launch, suggestions, results, paging, detail and back navigation, clearing the search | Two saved API pages passed to the app through the launch environment; the app runs in English with an `en_NL` locale |
+
+## API findings & Assumptions
+
+- **`query` is ignored**: every search returns the same 70 Apple products, so suggestions and results look the same for any query.
+- **Pages**: 24 products per page, 3 pages (24 + 24 + 22). A page past the end returns the last page instead of an empty one, so the app takes the page number from the response and stops at `pageCount`.
+- **`pageSize` is ignored**, so the app never sends it.
+- **No currency field**: prices are assumed to be euros.
+- **`availabilityState`** (2 or 3) has no documented meaning, so the app doesn't show it.
+- **Text quirks**: some names and USPs have stray spaces; the app trims them.
 
 ## Further improvements
 
