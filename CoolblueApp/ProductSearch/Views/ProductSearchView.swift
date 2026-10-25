@@ -12,7 +12,7 @@ struct ProductSearchView: View {
 
     init(client: any NetworkClient) {
         let router = ProductSearchRouter()
-        let service = RemoteProductSearchService(client: client)
+        let service = CachedProductSearchService(wrapping: RemoteProductSearchService(client: client))
         self.service = service
         _router = State(initialValue: router)
         _viewModel = State(initialValue: ProductSearchSuggestionViewModel(service: service, router: router))
