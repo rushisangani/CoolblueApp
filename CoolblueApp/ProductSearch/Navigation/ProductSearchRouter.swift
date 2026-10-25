@@ -1,6 +1,6 @@
 import Observation
 
-// Owns the search navigation stack; the screen binds to `path`.
+// Owns the search navigation stack. View models ask it to navigate; the screen only binds to `path`.
 @MainActor
 @Observable
 final class ProductSearchRouter {
