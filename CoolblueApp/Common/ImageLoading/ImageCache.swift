@@ -2,7 +2,7 @@ import UIKit
 
 /// Stores decoded images by URL.
 ///
-/// ``ImageLoader`` takes a cache from outside, so the caller chooses how images are stored.
+/// ``ImageLoader`` takes a cache from outside, so the app can use memory plus disk.
 /// Methods are `async` so implementations can do file I/O or protect their state with an actor.
 public nonisolated protocol ImageCache: Sendable {
     /// Returns the cached image for `url`, or `nil` when there is none.

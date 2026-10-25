@@ -6,7 +6,10 @@ struct CoolblueApp: App {
     private let imageLoader: ImageLoader // Shared ImageLoader
 
     init() {
-        imageLoader = ImageLoader(client: client, cache: MemoryImageCache())
+        imageLoader = ImageLoader(
+            client: client,
+            cache: LayeredImageCache(primary: MemoryImageCache(), secondary: DiskImageCache())
+        )
     }
 
     var body: some Scene {
