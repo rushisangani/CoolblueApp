@@ -4,34 +4,39 @@ struct ProductRow: View {
     let product: Product
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            if let promo = product.promo {
-                Text(promo.text)
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(product.isDiscounted ? .orange : .blue)
-            }
+        HStack(alignment: .top, spacing: 12) {
+            RemoteImage(url: product.imageURL)
+                .frame(width: 88, height: 88)
 
-            Text(product.name)
-                .font(.subheadline.weight(.semibold))
-                .lineLimit(2)
-
-            rating
-
-            VStack(alignment: .leading, spacing: 2) {
-                ForEach(product.highlightedUSPs, id: \.self) { usp in
-                    Label(usp, systemImage: "checkmark")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
+            VStack(alignment: .leading, spacing: 6) {
+                if let promo = product.promo {
+                    Text(promo.text)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(product.isDiscounted ? .orange : .blue)
                 }
-            }
 
-            price
+                Text(product.name)
+                    .font(.subheadline.weight(.semibold))
+                    .lineLimit(2)
 
-            if product.nextDayDelivery {
-                Label("Delivered tomorrow", systemImage: "shippingbox")
-                    .font(.caption)
-                    .foregroundStyle(.green)
+                rating
+
+                VStack(alignment: .leading, spacing: 2) {
+                    ForEach(product.highlightedUSPs, id: \.self) { usp in
+                        Label(usp, systemImage: "checkmark")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
+                }
+
+                price
+
+                if product.nextDayDelivery {
+                    Label("Delivered tomorrow", systemImage: "shippingbox")
+                        .font(.caption)
+                        .foregroundStyle(.green)
+                }
             }
         }
         .padding(.vertical, 4)
