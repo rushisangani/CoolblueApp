@@ -1,0 +1,215 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@/10": {
+      "shouldTranslate": false
+    },
+    "%lld reviews": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld review"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld reviews"
+                }
+              }
+            }
+          }
+        },
+        "nl": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld beoordeling"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld beoordelingen"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "(%lld reviews)": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "(%lld review)"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "(%lld reviews)"
+                }
+              }
+            }
+          }
+        },
+        "nl": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "(%lld beoordeling)"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "(%lld beoordelingen)"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "(%lld)": {
+      "shouldTranslate": false
+    },
+    "Check your internet connection and try again.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controleer je internetverbinding en probeer het opnieuw."
+          }
+        }
+      }
+    },
+    "Coolblue": {
+      "shouldTranslate": false
+    },
+    "Couldn't load products": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Producten konden niet worden geladen"
+          }
+        }
+      }
+    },
+    "Delivered tomorrow": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Morgen in huis"
+          }
+        }
+      }
+    },
+    "Price %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prijs %@"
+          }
+        }
+      }
+    },
+    "Price %@, was %@": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prijs %@, was %@"
+          }
+        }
+      }
+    },
+    "Rated %@ out of 10": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beoordeeld met %@ uit 10"
+          }
+        }
+      }
+    },
+    "Search for \"%@\"": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoek naar \"%@\""
+          }
+        }
+      }
+    },
+    "Search what you need": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoek wat je nodig hebt"
+          }
+        }
+      }
+    },
+    "Something went wrong. Please try again.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Er ging iets mis. Probeer het opnieuw."
+          }
+        }
+      }
+    },
+    "Try Again": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opnieuw proberen"
+          }
+        }
+      }
+    },
+    "Type to see suggestions.": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Typ om suggesties te zien."
+          }
+        }
+      }
+    },
+    "What are you looking for": {
+      "localizations": {
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waar ben je naar op zoek"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

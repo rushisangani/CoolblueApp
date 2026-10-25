@@ -6,6 +6,8 @@ extension XCUIApplication {
     @MainActor
     static func launchWithSavedResponses() -> XCUIApplication {
         let app = XCUIApplication()
+        // UI tests look for English text, whatever language the simulator is set to.
+        app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_NL"]
         for page in 1...2 {
             app.launchEnvironment["UITEST_SEARCH_PAGE_\(page)"] = savedPage(page)
         }

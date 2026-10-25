@@ -28,7 +28,8 @@ extension Product {
             parts.append(promo.text)
         }
         parts.append(name)
-        parts.append(String(localized: "Rated \(formattedRating) out of 10, \(reviewCount) reviews"))
+        parts.append(String(localized: "Rated \(formattedRating) out of 10"))
+        parts.append(String(localized: "\(reviewCount) reviews"))
         parts += highlightedUSPs
 
         if let formattedListPrice {

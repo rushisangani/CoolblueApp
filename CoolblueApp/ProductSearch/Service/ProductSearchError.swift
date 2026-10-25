@@ -27,13 +27,13 @@ nonisolated extension ProductSearchError {
 }
 
 extension ProductSearchError {
-    // TODO: return localized messages
+    // Translated in Localizable.xcstrings.
     var message: LocalizedStringResource {
         switch self {
         case .offline:
             "Check your internet connection and try again."
         case .server, .decoding, .cancelled, .unknown:
-            "Something went wrong on our side. Please try again."
+            "Something went wrong. Please try again."
         }
     }
 }
