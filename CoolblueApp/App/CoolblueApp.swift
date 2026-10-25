@@ -14,15 +14,8 @@ struct CoolblueApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ProductSearchResultView(
-                    viewModel: ProductSearchResultViewModel(
-                        query: "apple",
-                        service: RemoteProductSearchService(client: client)
-                    )
-                )
-            }
-            .environment(\.imageLoader, imageLoader)
+            ProductSearchView(client: client)
+                .environment(\.imageLoader, imageLoader)
         }
     }
 }
