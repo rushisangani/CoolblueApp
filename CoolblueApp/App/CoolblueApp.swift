@@ -4,12 +4,13 @@ import Networking
 
 @main
 struct CoolblueApp: App {
-    private let client: any NetworkClient // Shared NetworkClient
+    private let productSearchService: any ProductSearchService // Cached, shared by both search screens
     private let imageLoader: ImageLoader // Shared ImageLoader
 
     init() {
-        self.client = Self.makeNetworkClient()
+        let client = Self.makeNetworkClient()
 
+        productSearchService = CachedProductSearchService(wrapping: RemoteProductSearchService(client: client))
         imageLoader = ImageLoader(
             client: client,
             cache: LayeredImageCache(primary: MemoryImageCache(), secondary: DiskImageCache())
@@ -18,7 +19,7 @@ struct CoolblueApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ProductSearchView(client: client)
+            ProductSearchView(service: productSearchService)
                 .environment(\.imageLoader, imageLoader)
         }
     }

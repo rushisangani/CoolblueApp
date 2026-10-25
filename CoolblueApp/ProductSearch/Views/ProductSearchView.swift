@@ -1,5 +1,4 @@
 import SwiftUI
-import Networking
 
 struct ProductSearchView: View {
     @State private var router: ProductSearchRouter
@@ -10,9 +9,8 @@ struct ProductSearchView: View {
     @State private var text = ""
     @FocusState private var isSearchFocused: Bool
 
-    init(client: any NetworkClient) {
+    init(service: any ProductSearchService) {
         let router = ProductSearchRouter()
-        let service = CachedProductSearchService(wrapping: RemoteProductSearchService(client: client))
         self.service = service
         _router = State(initialValue: router)
         _viewModel = State(initialValue: ProductSearchSuggestionViewModel(service: service, router: router))
