@@ -1,7 +1,7 @@
 import Foundation
 
 // Product Data Model
-nonisolated struct Product: Identifiable, Sendable {
+nonisolated struct Product: Identifiable, Hashable, Sendable {
     let id: Int
     let name: String
     let imageURL: URL?
@@ -15,8 +15,8 @@ nonisolated struct Product: Identifiable, Sendable {
 }
 
 // Promo
-nonisolated struct Promo: Sendable {
-    enum Kind: Equatable, Sendable {
+nonisolated struct Promo: Hashable, Sendable {
+    enum Kind: Hashable, Sendable {
         case coolbluesChoice
         case actionPrice
         case unknown(String)
