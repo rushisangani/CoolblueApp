@@ -40,8 +40,12 @@ struct ProductSearchView: View {
                 switch route {
                 case .results(let query):
                     // Tied to the query, so replacing the route with a new query gets a new screen and view model.
-                    ProductSearchResultView(viewModel: ProductSearchResultViewModel(query: query, service: service))
-                        .id(query)
+                    ProductSearchResultView(
+                        viewModel: ProductSearchResultViewModel(query: query, service: service, router: router)
+                    )
+                    .id(query)
+                case .product(let product):
+                    ProductDetailView(product: product)
                 }
             }
         }
@@ -69,10 +73,15 @@ struct ProductSearchView: View {
                 .frame(maxWidth: .infinity)
                 .id(viewModel.query)
         case .loaded(let products):
-            // TODO: implement if time.
-            // Display-only: tapping a product would open its detail page, which is out of scope.
             ForEach(products) { product in
-                ProductRow(product: product)
+                Button {
+                    isSearchFocused = false
+                    viewModel.showProduct(product)
+                } label: {
+                    ProductRow(product: product)
+                }
+                // Keeps the row's own colors instead of tinting its text like a link.
+                .buttonStyle(.plain)
             }
         }
     }

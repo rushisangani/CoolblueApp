@@ -35,7 +35,7 @@ final class ProductSearchSuggestionViewModel {
     // debounce, query length and suggestion count
     private let configuration: ProductSearchSuggestionConfiguration
     
-    // navigates to the results screen on submit
+    // navigates to the results on submit and to a product on tap
     private let router: ProductSearchRouter
     
     // in-flight debounce + request, cancelled when the query changes
@@ -82,6 +82,11 @@ final class ProductSearchSuggestionViewModel {
         }
         // show search results
         router.showResults(for: query)
+    }
+
+    // opens a suggested product's detail screen
+    func showProduct(_ product: Product) {
+        router.showProduct(product)
     }
 
     private func loadSuggestions(for query: String) async {

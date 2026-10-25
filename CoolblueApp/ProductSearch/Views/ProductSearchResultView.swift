@@ -43,10 +43,16 @@ struct ProductSearchResultView: View {
     private var productList: some View {
         List {
             ForEach(viewModel.products) { product in
-                ProductRow(product: product)
-                    .onAppear {
-                        viewModel.loadMoreIfNeeded(after: product)
-                    }
+                Button {
+                    viewModel.showProduct(product)
+                } label: {
+                    ProductRow(product: product)
+                }
+                // Keeps the row's own colors instead of tinting its text like a link.
+                .buttonStyle(.plain)
+                .onAppear {
+                    viewModel.loadMoreIfNeeded(after: product)
+                }
             }
             switch viewModel.loadMoreState {
             case .idle:

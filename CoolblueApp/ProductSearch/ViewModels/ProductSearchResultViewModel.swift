@@ -47,16 +47,21 @@ final class ProductSearchResultViewModel {
     // source of result pages
     private let service: any ProductSearchService
 
+    // navigates to a product on tap
+    private let router: ProductSearchRouter
+
     // prefetch distance
     private let configuration: ProductSearchResultConfiguration
 
     init(
         query: String,
         service: any ProductSearchService,
+        router: ProductSearchRouter,
         configuration: ProductSearchResultConfiguration = ProductSearchResultConfiguration()
     ) {
         self.query = query
         self.service = service
+        self.router = router
         self.configuration = configuration
     }
 
@@ -64,6 +69,11 @@ final class ProductSearchResultViewModel {
     func start() {
         guard state == .idle else { return }
         retry()
+    }
+
+    // opens a result's detail screen
+    func showProduct(_ product: Product) {
+        router.showProduct(product)
     }
 
     // resets everything and loads page 1; also the full-screen Try Again
