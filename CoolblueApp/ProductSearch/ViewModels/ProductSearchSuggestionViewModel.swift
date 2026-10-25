@@ -18,7 +18,7 @@ struct ProductSearchSuggestionConfiguration {
 final class ProductSearchSuggestionViewModel {
    
     // view state
-    enum State {
+    enum State: Equatable {
         case idle
         case loading
         case loaded([Product])
