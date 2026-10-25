@@ -1,0 +1,513 @@
+{
+  "products": [
+    {
+      "productId": 233180,
+      "productName": "Apple Lightning Digital AV Adapter",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 8.9,
+          "reviewCount": 121
+        }
+      },
+      "USPs": [
+        "Lightning naar HDMI aansluiting",
+        "Origineel Apple product",
+        "Speel alle content op je iDevice af op bv. een HD-tv"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 59.99,
+      "productImage": "https://image.coolblue.nl/300x750/products/856583",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 749972,
+      "productName": "Apple Earpods Lightning Connector",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9,
+          "reviewCount": 685
+        }
+      },
+      "USPs": [
+        "Earbud",
+        "Kabel met bediening",
+        "Voor thuis en onderweg"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 34.99,
+      "productImage": "https://image.coolblue.nl/300x750/products/602430",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 782851,
+      "productName": "Apple MacBook Pro 13'' (2017) MPXT2N/A Space Gray",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.6,
+          "reviewCount": 96
+        }
+      },
+      "USPs": [
+        "Krachtig genoeg voor foto's bewerken",
+        "Intel Core i5 2,3GHz - 8GB - 256GB SSD",
+        "Intel Iris Plus 640"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 1619,
+      "productImage": "https://image.coolblue.nl/300x750/products/942669",
+      "coolbluesChoiceInformationTitle": "een instap MacBook Pro",
+      "promoIcon": {
+        "text": "een instap MacBook Pro",
+        "type": "coolblues-choice"
+      },
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 233193,
+      "productName": "Apple 12W USB Thuislader",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.1,
+          "reviewCount": 83
+        }
+      },
+      "USPs": [
+        "USB A aansluiting",
+        "2,4 A",
+        "1 USB poort"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 29.99,
+      "productImage": "https://image.coolblue.nl/300x750/products/899860",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 629100,
+      "productName": "Apple iPod Touch 6 32GB Spacegrijs",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9,
+          "reviewCount": 183
+        }
+      },
+      "USPs": [
+        "Muziek, foto's, video's, internet",
+        "32 GB opslagruimte",
+        "4 inch Retina display"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 225,
+      "productImage": "https://image.coolblue.nl/300x750/products/424471",
+      "coolbluesChoiceInformationTitle": "audio, beeld en internet",
+      "promoIcon": {
+        "text": "audio, beeld en internet",
+        "type": "coolblues-choice"
+      },
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 733933,
+      "productName": "Apple iPhone 7 128GB Zwart",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.3,
+          "reviewCount": 1235
+        }
+      },
+      "USPs": [
+        "128 GB opslagcapaciteit",
+        "4,7 inch Retina HD scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 699,
+      "productImage": "https://image.coolblue.nl/300x750/products/985105",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 810622,
+      "productName": "Apple iPhone 8 64GB RED",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.3,
+          "reviewCount": 277
+        }
+      },
+      "USPs": [
+        "64 GB opslagcapaciteit",
+        "4,7 inch Retina HD scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 809,
+      "productImage": "https://image.coolblue.nl/300x750/products/1019525",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 222859,
+      "productName": "Apple Earpods 3,5 mm Jack",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9,
+          "reviewCount": 685
+        }
+      },
+      "USPs": [
+        "Earbud",
+        "Kabel met Apple bediening",
+        "Voor thuis en onderweg"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 34.99,
+      "productImage": "https://image.coolblue.nl/300x750/products/577112",
+      "promoIcon": {
+        "text": "4 sterren door What Hi-Fi",
+        "imageId": 117658,
+        "type": "image"
+      },
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 793666,
+      "productName": "Apple iPhone 8 64GB Goud",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.3,
+          "reviewCount": 277
+        }
+      },
+      "USPs": [
+        "64 GB opslagcapaciteit",
+        "4,7 inch Retina HD scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 770,
+      "productImage": "https://image.coolblue.nl/300x750/products/984086",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 809145,
+      "productName": "Apple iPad (2018) 32GB Wifi Gold",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.6,
+          "reviewCount": 75
+        }
+      },
+      "USPs": [
+        "9,7 inch Retina scherm",
+        "Internet alleen via wifi",
+        "32 GB opslagcapaciteit"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 359,
+      "productImage": "https://image.coolblue.nl/300x750/products/1010380",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 684097,
+      "productName": "Apple iPad Pro 12,9 inch Smart Keyboard",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 8,
+          "reviewCount": 12
+        }
+      },
+      "USPs": [
+        "Geschikt voor iPad Pro 12,9 inch",
+        "Keyboard case",
+        "Ingebouwde stand",
+        "Kunststof"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 189,
+      "productImage": "https://image.coolblue.nl/300x750/products/469288",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 772996,
+      "productName": "Apple iPad (2017) 128 GB Wifi Space Gray",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.4,
+          "reviewCount": 1097
+        }
+      },
+      "USPs": [
+        "9,7 inch Retina scherm",
+        "Internet alleen via wifi",
+        "128 GB opslagcapaciteit"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 419,
+      "productImage": "https://image.coolblue.nl/300x750/products/946002",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 793665,
+      "productName": "Apple iPhone 8 64GB Zilver",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.3,
+          "reviewCount": 277
+        }
+      },
+      "USPs": [
+        "64 GB opslagcapaciteit",
+        "4,7 inch Retina HD scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 799,
+      "productImage": "https://image.coolblue.nl/300x750/products/984948",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 793663,
+      "productName": "Apple iPhone 8 256GB Space Grey",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.3,
+          "reviewCount": 277
+        }
+      },
+      "USPs": [
+        "256 GB opslagcapaciteit",
+        "4,7 inch Retina HD scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 939,
+      "productImage": "https://image.coolblue.nl/300x750/products/984099",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 793777,
+      "productName": "Apple TV 4K 32GB",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.4,
+          "reviewCount": 116
+        }
+      },
+      "USPs": [
+        "4K (3840 x 2160)",
+        "Geschikt voor Netflix, iTunes en Apple Music",
+        "App voor iOS"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 199,
+      "productImage": "https://image.coolblue.nl/300x750/products/885100",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 793672,
+      "productName": "Apple iPhone 8 Plus 64GB Space Grey",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.2,
+          "reviewCount": 216
+        }
+      },
+      "USPs": [
+        "64 GB opslagcapaciteit",
+        "5,5 inch Retina HD scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 919,
+      "productImage": "https://image.coolblue.nl/300x750/products/983848",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 652528,
+      "productName": "Apple iPad Mini 4 Wifi 128 GB Zilver",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.4,
+          "reviewCount": 357
+        }
+      },
+      "USPs": [
+        "7,9 inch Retina scherm",
+        "Internet alleen via wifi",
+        "128 GB opslagcapaciteit"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 439,
+      "productImage": "https://image.coolblue.nl/300x750/products/946010",
+      "coolbluesChoiceInformationTitle": "een kleine iPad",
+      "promoIcon": {
+        "text": "een kleine iPad",
+        "type": "coolblues-choice"
+      },
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 809151,
+      "productName": "Apple iPad (2018) 32GB Wifi + 4G Space Gray",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.6,
+          "reviewCount": 75
+        }
+      },
+      "USPs": [
+        "9,7 inch Retina scherm",
+        "Internet via wifi en sim kaart",
+        "32 GB opslagcapaciteit"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 489,
+      "productImage": "https://image.coolblue.nl/300x750/products/1009542",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 773375,
+      "productName": "Apple iPhone SE 128GB Space Gray",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.2,
+          "reviewCount": 2246
+        }
+      },
+      "USPs": [
+        "128 GB opslagcapaciteit",
+        "4 inch Retina scherm",
+        "iOS 11"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 449,
+      "productImage": "https://image.coolblue.nl/300x750/products/503511",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 782768,
+      "productName": "Apple iPad Pro 10,5 inch 64 GB Wifi Space Gray",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.8,
+          "reviewCount": 259
+        }
+      },
+      "USPs": [
+        "10,5 inch HDR Retina scherm",
+        "Internet alleen via wifi",
+        "64 GB opslagcapaciteit"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 699,
+      "productImage": "https://image.coolblue.nl/300x750/products/946069",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 650764,
+      "productName": "Apple TV 4 - 32 GB",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.1,
+          "reviewCount": 353
+        }
+      },
+      "USPs": [
+        "Full HD (1920 x 1080)",
+        "Geschikt voor Netflix, iTunes en Apple Music",
+        "App voor iOS"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 159,
+      "productImage": "https://image.coolblue.nl/300x750/products/437011",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 667980,
+      "productName": "Apple Magic Keyboard QWERTY",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.4,
+          "reviewCount": 137
+        }
+      },
+      "USPs": [
+        "Draadloos",
+        "Geen verlicht toetsenbord",
+        "Multimedia sneltoetsen",
+        "Compact formaat",
+        "Bluetooth-verbinding"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 119,
+      "productImage": "https://image.coolblue.nl/300x750/products/803379",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 772993,
+      "productName": "Apple iPad (2017) 32 GB Wifi Silver",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 9.4,
+          "reviewCount": 1097
+        }
+      },
+      "USPs": [
+        "9,7 inch Retina scherm",
+        "Internet alleen via wifi",
+        "32 GB opslagcapaciteit"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 329,
+      "productImage": "https://image.coolblue.nl/300x750/products/939189",
+      "nextDayDelivery": true
+    },
+    {
+      "productId": 772979,
+      "productName": "Apple Smart Cover iPad 9,7 inch Houtskoolgrijs",
+      "reviewInformation": {
+        "reviews": [],
+        "reviewSummary": {
+          "reviewAverage": 8.8,
+          "reviewCount": 56
+        }
+      },
+      "USPs": [
+        "Geschikt voor iPad 9,7\" (2017)/(2018)",
+        "Front cover",
+        "Auto wake functie",
+        "Kunststof",
+        "Te gebruiken in meerdere standen"
+      ],
+      "availabilityState": 2,
+      "salesPriceIncVat": 44.95,
+      "productImage": "https://image.coolblue.nl/300x750/products/731664",
+      "nextDayDelivery": true
+    }
+  ],
+  "currentPage": 2,
+  "pageSize": 24,
+  "totalResults": 70,
+  "pageCount": 2
+}
