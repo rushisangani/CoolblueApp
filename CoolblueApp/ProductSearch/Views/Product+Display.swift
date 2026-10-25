@@ -20,4 +20,26 @@ extension Product {
     var isDiscounted: Bool {
         promo?.kind == .actionPrice
     }
+
+    // Written out because combining the row's children reads "9.1/10" literally and can't express the struck-through price.
+    var accessibilityDescription: String {
+        var parts: [String] = []
+        if let promo {
+            parts.append(promo.text)
+        }
+        parts.append(name)
+        parts.append(String(localized: "Rated \(formattedRating) out of 10, \(reviewCount) reviews"))
+        parts += highlightedUSPs
+
+        if let formattedListPrice {
+            parts.append(String(localized: "Price \(formattedPrice), was \(formattedListPrice)"))
+        } else {
+            parts.append(String(localized: "Price \(formattedPrice)"))
+        }
+
+        if nextDayDelivery {
+            parts.append(String(localized: "Delivered tomorrow"))
+        }
+        return parts.joined(separator: ", ")
+    }
 }

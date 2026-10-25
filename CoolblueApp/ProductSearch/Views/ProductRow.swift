@@ -40,6 +40,8 @@ struct ProductRow: View {
             }
         }
         .padding(.vertical, 4)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(product.accessibilityDescription)
     }
 
     private var rating: some View {
