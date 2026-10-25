@@ -5,14 +5,60 @@ struct ProductRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
+            if let promo = product.promo {
+                Text(promo.text)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(product.isDiscounted ? .orange : .blue)
+            }
+
             Text(product.name)
                 .font(.subheadline.weight(.semibold))
                 .lineLimit(2)
 
-            Text(product.price, format: .currency(code: "EUR"))
-                .font(.headline)
+            rating
+
+            VStack(alignment: .leading, spacing: 2) {
+                ForEach(product.highlightedUSPs, id: \.self) { usp in
+                    Label(usp, systemImage: "checkmark")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+            }
+
+            price
+
+            if product.nextDayDelivery {
+                Label("Delivered tomorrow", systemImage: "shippingbox")
+                    .font(.caption)
+                    .foregroundStyle(.green)
+            }
         }
         .padding(.vertical, 4)
+    }
+
+    private var rating: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "star.fill")
+                .foregroundStyle(.yellow)
+            Text("\(product.formattedRating)/10")
+            Text("(\(product.reviewCount))")
+                .foregroundStyle(.secondary)
+        }
+        .font(.caption)
+    }
+
+    private var price: some View {
+        HStack(alignment: .firstTextBaseline, spacing: 8) {
+            Text(product.formattedPrice)
+                .font(.headline)
+            if let formattedListPrice = product.formattedListPrice {
+                Text(formattedListPrice)
+                    .font(.caption)
+                    .strikethrough()
+                    .foregroundStyle(.secondary)
+            }
+        }
     }
 }
 
