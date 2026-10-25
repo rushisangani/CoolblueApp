@@ -1,12 +1,20 @@
 import SwiftUI
 
 struct ProductSearchView: View {
-    @State private var router = ProductSearchRouter()
+    @State private var router: ProductSearchRouter
+    @State private var viewModel: ProductSearchSuggestionViewModel
+    // shared by the suggestion and result view models
     private let service: any ProductSearchService
+
     @State private var text = ""
+    @FocusState private var isSearchFocused: Bool
 
     init(client: any NetworkClient) {
-        service = RemoteProductSearchService(client: client)
+        let router = ProductSearchRouter()
+        let service = RemoteProductSearchService(client: client)
+        self.service = service
+        _router = State(initialValue: router)
+        _viewModel = State(initialValue: ProductSearchSuggestionViewModel(service: service, router: router))
     }
 
     var body: some View {
@@ -14,14 +22,19 @@ struct ProductSearchView: View {
             ContentUnavailableView(
                 "Search what you need",
                 systemImage: "magnifyingglass",
-                description: Text("Search to see products.")
+                description: Text("Type to see suggestions.")
             )
             .navigationTitle("Coolblue")
             .searchable(text: $text, prompt: "What are you looking for")
+            .searchFocused($isSearchFocused)
+            .searchSuggestions {
+                suggestions
+            }
+            .onChange(of: text) {
+                viewModel.queryChanged(text)
+            }
             .onSubmit(of: .search) {
-                let query = text.trimmingCharacters(in: .whitespacesAndNewlines)
-                guard !query.isEmpty else { return }
-                router.showResults(for: query)
+                viewModel.submitSearch()
             }
             .navigationDestination(for: ProductSearchRouter.Route.self) { route in
                 switch route {
@@ -30,6 +43,36 @@ struct ProductSearchView: View {
                     ProductSearchResultView(viewModel: ProductSearchResultViewModel(query: query, service: service))
                         .id(query)
                 }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var suggestions: some View {
+        if viewModel.canSubmit {
+            Button {
+                // End editing first, like the keyboard's Search key does.
+                isSearchFocused = false
+                viewModel.submitSearch()
+            } label: {
+                Label("Search for \"\(viewModel.query)\"", systemImage: "magnifyingglass")
+            }
+        }
+
+        switch viewModel.state {
+        case .idle:
+            EmptyView()
+        case .loading:
+            // The suggestion list reuses this row, and a reused ProgressView stops animating;
+            // a new identity per query gives each load a fresh spinner.
+            ProgressView()
+                .frame(maxWidth: .infinity)
+                .id(viewModel.query)
+        case .loaded(let products):
+            // TODO: implement if time.
+            // Display-only: tapping a product would open its detail page, which is out of scope.
+            ForEach(products) { product in
+                ProductRow(product: product)
             }
         }
     }
