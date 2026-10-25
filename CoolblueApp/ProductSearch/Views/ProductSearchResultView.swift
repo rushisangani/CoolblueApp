@@ -22,6 +22,19 @@ struct ProductSearchResultView: View {
         switch viewModel.state {
         case .idle, .loading:
             ProgressView()
+        case .empty:
+            ContentUnavailableView.search(text: viewModel.query)
+        case .failed(let error):
+            ContentUnavailableView {
+                Label("Couldn't load products", systemImage: "exclamationmark.triangle")
+            } description: {
+                Text(error.message)
+            } actions: {
+                Button("Try Again") {
+                    viewModel.retry()
+                }
+                .buttonStyle(.borderedProminent)
+            }
         case .loaded:
             productList
         }

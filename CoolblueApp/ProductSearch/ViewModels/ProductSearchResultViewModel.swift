@@ -11,6 +11,8 @@ final class ProductSearchResultViewModel {
         case idle
         case loading
         case loaded
+        case empty
+        case failed(ProductSearchError)
     }
 
     // query the results are for
@@ -20,6 +22,9 @@ final class ProductSearchResultViewModel {
 
     // current view state
     private(set) var state: State = .idle
+
+    // in-flight request, cancelled on reload
+    private var task: Task<Void, Never>?
 
     // source of result pages
     private let service: any ProductSearchService
@@ -32,16 +37,37 @@ final class ProductSearchResultViewModel {
     // Called every time the screen appears; only the first call loads.
     func start() {
         guard state == .idle else { return }
+        retry()
+    }
+
+    // resets everything and loads page 1; also the full-screen Try Again
+    func retry() {
+        task?.cancel()
+        products = []
         state = .loading
 
-        Task {
+        task = Task {
             await load()
         }
     }
 
     private func load() async {
-        // An error leaves the list empty for now.
-        products = (try? await service.search(query: query, page: 1).products) ?? []
-        state = .loaded
+        do {
+            let result = try await service.search(query: query, page: 1)
+            if Task.isCancelled {
+                return
+            }
+            products = result.products
+            state = products.isEmpty ? .empty : .loaded
+
+        } catch ProductSearchError.cancelled {
+            return // Cancelled by a reload; it has already reset the state.
+        } catch {
+            // A failure can still race a cancellation; don't overwrite the reload's state.
+            if Task.isCancelled {
+                return
+            }
+            state = .failed(error)
+        }
     }
 }
