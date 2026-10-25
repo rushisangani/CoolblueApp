@@ -41,8 +41,35 @@ struct ProductSearchResultView: View {
     }
 
     private var productList: some View {
-        List(viewModel.products) { product in
-            ProductRow(product: product)
+        List {
+            ForEach(viewModel.products) { product in
+                ProductRow(product: product)
+                    .onAppear {
+                        viewModel.loadMoreIfNeeded(after: product)
+                    }
+            }
+            switch viewModel.loadMoreState {
+            case .idle:
+                EmptyView()
+            case .loading:
+                ProgressView()
+                    .frame(maxWidth: .infinity)
+                    .listRowSeparator(.hidden)
+            case .failed(let error):
+                VStack(spacing: 8) {
+                    Text(error.message)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                    Button("Try Again") {
+                        viewModel.retryLoadMore()
+                    }
+                    .buttonStyle(.bordered)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8)
+                .listRowSeparator(.hidden)
+            }
         }
         .listStyle(.plain)
     }
