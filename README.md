@@ -77,7 +77,7 @@ sequenceDiagram
 
     User->>Search: types "ip"
     Search->>SVM: queryChanged("ip")
-    Note over SVM: waits 300 ms; a newer keystroke cancels
+    Note over SVM: waits 300 ms, a newer keystroke cancels it
     SVM->>Cache: search("ip", page 1)
     Cache->>Remote: not cached yet
     Remote-->>Cache: page 1
