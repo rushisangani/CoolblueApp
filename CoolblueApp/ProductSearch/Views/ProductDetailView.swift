@@ -54,6 +54,7 @@ struct ProductDetailView: View {
             }
             .padding()
         }
+        .accessibilityIdentifier("productDetail")
         .navigationTitle(product.name)
         .navigationBarTitleDisplayMode(.inline)
     }

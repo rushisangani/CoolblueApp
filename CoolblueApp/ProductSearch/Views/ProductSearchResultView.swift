@@ -50,6 +50,7 @@ struct ProductSearchResultView: View {
                 }
                 // Keeps the row's own colors instead of tinting its text like a link.
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("productRow")
                 .onAppear {
                     viewModel.loadMoreIfNeeded(after: product)
                 }

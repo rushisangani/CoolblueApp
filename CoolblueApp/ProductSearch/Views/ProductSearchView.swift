@@ -67,6 +67,7 @@ struct ProductSearchView: View {
             } label: {
                 Label("Search for \"\(viewModel.query)\"", systemImage: "magnifyingglass")
             }
+            .accessibilityIdentifier("searchForButton")
 
             switch viewModel.state {
             case .idle:
@@ -85,6 +86,7 @@ struct ProductSearchView: View {
                     }
                     // Keeps the row's own colors instead of tinting its text like a link.
                     .buttonStyle(.plain)
+                    .accessibilityIdentifier("productRow")
                 }
             }
         }
