@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A230B405308E0D6C0057EEA6 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = A230B402308E0D6C0057EEA6 /* Networking */; };
+		A230B406308E0D6C0057EEA6 /* ImageLoading in Frameworks */ = {isa = PBXBuildFile; productRef = A230B403308E0D6C0057EEA6 /* ImageLoading */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A230B2ED308E0D6C0057EEA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A230B405308E0D6C0057EEA6 /* Networking in Frameworks */,
+				A230B406308E0D6C0057EEA6 /* ImageLoading in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = CoolblueApp;
 			packageProductDependencies = (
+				A230B402308E0D6C0057EEA6 /* Networking */,
+				A230B403308E0D6C0057EEA6 /* ImageLoading */,
 			);
 			productName = CoolblueApp;
 			productReference = A230B2DF308E0D6B0057EEA6 /* CoolblueApp.app */;
@@ -195,6 +204,10 @@
 			);
 			mainGroup = A230B2D6308E0D6B0057EEA6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A230B400308E0D6C0057EEA6 /* XCLocalSwiftPackageReference "Packages/Networking" */,
+				A230B401308E0D6C0057EEA6 /* XCLocalSwiftPackageReference "Packages/ImageLoading" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A230B2E0308E0D6B0057EEA6 /* Products */;
 			projectDirPath = "";
@@ -586,6 +599,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A230B400308E0D6C0057EEA6 /* XCLocalSwiftPackageReference "Packages/Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Networking;
+		};
+		A230B401308E0D6C0057EEA6 /* XCLocalSwiftPackageReference "Packages/ImageLoading" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/ImageLoading;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A230B402308E0D6C0057EEA6 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		A230B403308E0D6C0057EEA6 /* ImageLoading */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ImageLoading;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A230B2D7308E0D6B0057EEA6 /* Project object */;
 }

@@ -2,10 +2,9 @@ import Foundation
 
 /// A ``NetworkClient`` backed by `URLSession`.
 ///
-/// It's `nonisolated` because the app target isolates declarations to the main actor by default.
-/// The struct is stateless and `Sendable`, so any actor can call it directly instead of hopping to the main actor.
+/// The struct is stateless and `Sendable`, so any actor can call it directly without hopping to the main actor.
 /// `URLSession` does the actual I/O off the calling thread, so awaiting a request never blocks the caller.
-public nonisolated struct NetworkManager: NetworkClient {
+public struct NetworkManager: NetworkClient {
     private let session: URLSession
 
     /// Creates a client that sends requests through `session`.

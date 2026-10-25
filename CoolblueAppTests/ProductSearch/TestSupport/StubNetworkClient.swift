@@ -1,4 +1,5 @@
 import Foundation
+import Networking
 @testable import CoolblueApp
 
 // A NetworkClient that returns a fixed result, whatever the URL.

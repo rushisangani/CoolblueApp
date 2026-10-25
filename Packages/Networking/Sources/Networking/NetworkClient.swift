@@ -4,7 +4,7 @@ import Foundation
 ///
 /// The single seam between the app and the transport: features depend on this protocol,
 /// so tests can substitute a stub without touching `URLSession`.
-public nonisolated protocol NetworkClient: Sendable {
+public protocol NetworkClient: Sendable {
     /// Returns the body of a successful (2xx) response.
     ///
     /// - Throws: ``NetworkError`` for connectivity problems, cancellation and non-2xx status codes.

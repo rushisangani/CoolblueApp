@@ -1,4 +1,5 @@
 import SwiftUI
+import Networking
 
 struct ProductSearchView: View {
     @State private var router: ProductSearchRouter

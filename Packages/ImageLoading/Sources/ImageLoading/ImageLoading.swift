@@ -3,7 +3,7 @@ import SwiftUI
 /// Loads images from remote URLs.
 ///
 /// ``RemoteImage`` reads a conforming loader from the environment, so views never create one themselves.
-public nonisolated protocol ImageLoading: Sendable {
+public protocol ImageLoading: Sendable {
     /// Returns the image at `url`, from a cache when possible.
     ///
     /// - Throws: ``ImageLoadingError`` when the download fails or the data isn't an image.

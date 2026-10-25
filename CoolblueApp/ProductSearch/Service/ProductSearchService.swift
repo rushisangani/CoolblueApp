@@ -1,4 +1,5 @@
 import Foundation
+import Networking
 
 // Product Search Service
 nonisolated protocol ProductSearchService: Sendable {

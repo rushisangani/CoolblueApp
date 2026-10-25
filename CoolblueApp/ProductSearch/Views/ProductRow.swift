@@ -1,4 +1,5 @@
 import SwiftUI
+import ImageLoading
 
 struct ProductRow: View {
     let product: Product

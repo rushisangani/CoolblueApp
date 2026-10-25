@@ -1,4 +1,5 @@
 import SwiftUI
+import ImageLoading
 
 // Everything the search API returns for one product, on its own screen.
 struct ProductDetailView: View {

@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import Networking
 @testable import CoolblueApp
 
 struct RemoteProductSearchServiceTests {

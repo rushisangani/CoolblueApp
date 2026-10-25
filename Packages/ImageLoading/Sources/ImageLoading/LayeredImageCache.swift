@@ -3,7 +3,7 @@ import UIKit
 /// An ``ImageCache`` that checks a fast cache before a slower, persistent one.
 ///
 /// A hit in `secondary` is copied into `primary`, so the next read is fast.
-public nonisolated struct LayeredImageCache: ImageCache {
+public struct LayeredImageCache: ImageCache {
     private let primary: any ImageCache
     private let secondary: any ImageCache
 

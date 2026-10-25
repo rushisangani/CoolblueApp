@@ -3,7 +3,7 @@ import Foundation
 /// The ways a ``NetworkClient`` request can fail.
 ///
 /// A closed set, so callers can switch over it exhaustively and translate it into their own errors.
-public nonisolated enum NetworkError: Error, Equatable, Sendable {
+public enum NetworkError: Error, Equatable, Sendable {
     /// The device has no usable connection.
     case noConnection
     /// The server didn't respond in time.

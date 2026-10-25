@@ -1,5 +1,6 @@
 #if DEBUG
 import Foundation
+import Networking
 
 // Answers search requests with pages the UI tests pass in the launch environment, instead of calling the API.
 // Image requests fail, so rows show their placeholder.

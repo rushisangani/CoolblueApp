@@ -1,4 +1,5 @@
 import Foundation
+import Networking
 
 // Search Error
 nonisolated enum ProductSearchError: Error, Equatable, Sendable {
