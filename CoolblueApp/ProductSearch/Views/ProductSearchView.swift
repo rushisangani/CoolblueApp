@@ -19,41 +19,47 @@ struct ProductSearchView: View {
 
     var body: some View {
         NavigationStack(path: $router.path) {
+            content
+                .navigationTitle("Coolblue")
+                .searchable(text: $text, prompt: "What are you looking for")
+                .searchFocused($isSearchFocused)
+                .onChange(of: text) {
+                    viewModel.queryChanged(text)
+                }
+                .onSubmit(of: .search) {
+                    viewModel.submitSearch()
+                }
+                .navigationDestination(for: ProductSearchRouter.Route.self) { route in
+                    switch route {
+                    case .results(let query):
+                        // Tied to the query, so replacing the route with a new query gets a new screen and view model.
+                        ProductSearchResultView(
+                            viewModel: ProductSearchResultViewModel(query: query, service: service, router: router)
+                        )
+                        .id(query)
+                    case .product(let product):
+                        ProductDetailView(product: product)
+                    }
+                }
+        }
+    }
+
+    // Part of the screen, not the search overlay, so the list and its scroll position survive navigating away.
+    @ViewBuilder
+    private var content: some View {
+        if viewModel.canSubmit {
+            suggestionList
+        } else {
             ContentUnavailableView(
                 "Search what you need",
                 systemImage: "magnifyingglass",
                 description: Text("Type to see suggestions.")
             )
-            .navigationTitle("Coolblue")
-            .searchable(text: $text, prompt: "What are you looking for")
-            .searchFocused($isSearchFocused)
-            .searchSuggestions {
-                suggestions
-            }
-            .onChange(of: text) {
-                viewModel.queryChanged(text)
-            }
-            .onSubmit(of: .search) {
-                viewModel.submitSearch()
-            }
-            .navigationDestination(for: ProductSearchRouter.Route.self) { route in
-                switch route {
-                case .results(let query):
-                    // Tied to the query, so replacing the route with a new query gets a new screen and view model.
-                    ProductSearchResultView(
-                        viewModel: ProductSearchResultViewModel(query: query, service: service, router: router)
-                    )
-                    .id(query)
-                case .product(let product):
-                    ProductDetailView(product: product)
-                }
-            }
         }
     }
 
-    @ViewBuilder
-    private var suggestions: some View {
-        if viewModel.canSubmit {
+    private var suggestionList: some View {
+        List {
             Button {
                 // End editing first, like the keyboard's Search key does.
                 isSearchFocused = false
@@ -61,28 +67,28 @@ struct ProductSearchView: View {
             } label: {
                 Label("Search for \"\(viewModel.query)\"", systemImage: "magnifyingglass")
             }
-        }
 
-        switch viewModel.state {
-        case .idle:
-            EmptyView()
-        case .loading:
-            // The suggestion list reuses this row, and a reused ProgressView stops animating;
-            // a new identity per query gives each load a fresh spinner.
-            ProgressView()
-                .frame(maxWidth: .infinity)
-                .id(viewModel.query)
-        case .loaded(let products):
-            ForEach(products) { product in
-                Button {
-                    isSearchFocused = false
-                    viewModel.showProduct(product)
-                } label: {
-                    ProductRow(product: product)
+            switch viewModel.state {
+            case .idle:
+                EmptyView()
+            case .loading:
+                ProgressView()
+                    .frame(maxWidth: .infinity)
+                    .listRowSeparator(.hidden)
+            case .loaded(let products):
+                ForEach(products) { product in
+                    Button {
+                        isSearchFocused = false
+                        viewModel.showProduct(product)
+                    } label: {
+                        ProductRow(product: product)
+                    }
+                    // Keeps the row's own colors instead of tinting its text like a link.
+                    .buttonStyle(.plain)
                 }
-                // Keeps the row's own colors instead of tinting its text like a link.
-                .buttonStyle(.plain)
             }
         }
+        .listStyle(.plain)
+        .scrollDismissesKeyboard(.immediately)
     }
 }
